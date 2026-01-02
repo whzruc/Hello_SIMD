@@ -1,3 +1,10 @@
+探究SIMD性能的简单实验
+
+平台
+Ubuntu 24.04
+AMD Ryzen 9 7945HX
+64GB (DDR5)
+
 编译指令
 ``` bash
 g++ -O3 -mavx2 hello_SIMD.cpp -o hello_SIMD && perf stat -e cycles,instructions,cache-misses ./hello_SIMD
@@ -13,4 +20,5 @@ g++ -O3 -mavx2 hello_SIMD.cpp -o hello_SIMD && perf stat -e cycles,instructions,
 | AVX2 + 100次循环     | 16.67         | 204,240 μs     | 19.59             | 0.94           | 7.76x              |
 | AVX2 + 4路并行       | 16.67         | 70,581 μs      | 56.67             | 0.99           | 23.09x             |
 | AVX2 + 8路并行       | 16.67         | 39,294 μs      | 101.8             | 2.77           | 40.59x             |
-|                      |               |                |                   |                |                    |
+
+![test](./test.png)
